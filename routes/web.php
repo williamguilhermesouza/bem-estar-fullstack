@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\AgendaController;
+use App\Http\Controllers\Site\AttendanceController;
+use App\Http\Controllers\Site\MovementController;
+use App\Http\Controllers\Site\PatientController;
+use App\Http\Controllers\Site\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +20,8 @@ use App\Http\Controllers\Site\HomeController;
 */
 
 Route::get('/', HomeController::class);
+Route::get('/agenda', [AgendaController::class, 'index']);
+Route::get('/atendimentos', [AttendanceController::class, 'index']);
+Route::get('/movimentacao', [MovementController::class, 'index']);
+Route::get('/pacientes', [PatientController::class, 'index']);
+Route::get('/usuarios', [UserController::class, 'index']);
