@@ -25,3 +25,7 @@ Route::get('/atendimentos', [AttendanceController::class, 'index']);
 Route::get('/movimentacao', [MovementController::class, 'index']);
 Route::get('/pacientes', [PatientController::class, 'index']);
 Route::get('/usuarios', [UserController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
