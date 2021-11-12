@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+    <button class="btn btn-success right-4" >Novo Usuário</button>
     {{-- Setup data for datatables --}}
     @php
     $heads = [

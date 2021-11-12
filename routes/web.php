@@ -27,6 +27,8 @@ Route::prefix('/admin')->group(function() {
     Route::get('/usuarios', [UserController::class, 'index']);
 });
 
+Route::redirect( '/', '/login' );
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
