@@ -18,13 +18,14 @@ use App\Http\Controllers\Site\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', HomeController::class);
-Route::get('/agenda', [AgendaController::class, 'index']);
-Route::get('/atendimentos', [AttendanceController::class, 'index']);
-Route::get('/movimentacao', [MovementController::class, 'index']);
-Route::get('/pacientes', [PatientController::class, 'index']);
-Route::get('/usuarios', [UserController::class, 'index']);
+Route::prefix('/admin')->group(function() {
+    Route::get('/', HomeController::class);
+    Route::get('/agenda', [AgendaController::class, 'index']);
+    Route::get('/atendimentos', [AttendanceController::class, 'index']);
+    Route::get('/movimentacao', [MovementController::class, 'index']);
+    Route::get('/pacientes', [PatientController::class, 'index']);
+    Route::get('/usuarios', [UserController::class, 'index']);
+});
 
 Auth::routes();
 
