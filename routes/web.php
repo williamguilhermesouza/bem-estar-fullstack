@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Site\HomeController;
-use App\Http\Controllers\Site\AgendaController;
-use App\Http\Controllers\Site\AttendanceController;
-use App\Http\Controllers\Site\MovementController;
-use App\Http\Controllers\Site\PatientController;
-use App\Http\Controllers\Site\UserController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\AttendanceController;
+use App\Http\Controllers\Admin\MovementController;
+use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
