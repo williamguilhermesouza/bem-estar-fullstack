@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <button class="btn btn-success right-4" >Novo Usuário</button>
+    <a href={{route('register')}}><button class="btn btn-success mb-4" >Novo Usuário</button></a>
     {{-- Setup data for datatables --}}
     @php
     $heads = [

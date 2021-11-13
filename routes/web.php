@@ -19,16 +19,15 @@ use App\Http\Controllers\Admin\UserController;
 |
 */
 Route::prefix('/admin')->group(function() {
-    Route::get('/', HomeController::class);
-    Route::get('/agenda', [AgendaController::class, 'index']);
-    Route::get('/atendimentos', [AttendanceController::class, 'index']);
-    Route::get('/movimentacao', [MovementController::class, 'index']);
-    Route::get('/pacientes', [PatientController::class, 'index']);
-    Route::get('/usuarios', [UserController::class, 'index']);
+    Route::get('/', HomeController::class)->name('admin.home');
+    Route::get('/agenda', [AgendaController::class, 'index'])->name('admin.agenda');
+    Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('admin.attendance');
+    Route::get('/movimentacao', [MovementController::class, 'index'])->name('admin.movement');
+    Route::get('/pacientes', [PatientController::class, 'index'])->name('admin.patient');
+    Route::get('/usuarios', [UserController::class, 'index'])->name('admin.user');
 });
 
 Route::redirect( '/', '/login' );
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
