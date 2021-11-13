@@ -24,6 +24,7 @@ Route::prefix('/admin')->group(function() {
     Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('admin.attendance');
     Route::get('/movimentacao', [MovementController::class, 'index'])->name('admin.movement');
     Route::get('/pacientes', [PatientController::class, 'index'])->name('admin.patient');
+    Route::get('/pacientes/novo', [PatientController::class, 'create'])->name('admin.patient.new');
     Route::get('/usuarios', [UserController::class, 'index'])->name('admin.user');
 });
 

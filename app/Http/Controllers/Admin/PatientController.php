@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -18,7 +19,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('admin.patient.index');
+        $patients = DB::select('select * from patients');
+        return view('admin.patient.index', ['patients' => $patients]);
     }
 
     /**
@@ -28,7 +30,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.patient.new');
     }
 
     /**

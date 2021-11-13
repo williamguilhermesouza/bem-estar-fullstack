@@ -8,7 +8,7 @@
 
 
 @section('content')
-    <a href={{route('register')}}><button class="btn btn-success mb-4" >Novo Paciente</button></a>
+    <a href={{route('admin.patient.new')}}><button class="btn btn-success mb-4" >Novo Paciente</button></a>
     {{-- Setup data for datatables --}}
     @php
     $heads = [
@@ -34,7 +34,9 @@
     ];
 
     $data = [];
-
+    foreach ($patients as $patient) {
+        array_push($data, [$patient->id, $patient->name, $patient->email, '<nobr>' . $btnEdit . '<nobr>' . $btnDelete . '<nobr>' . $btnDetails ]);
+    }
     @endphp
 
     {{-- Minimal example / fill data using the component slot --}}
