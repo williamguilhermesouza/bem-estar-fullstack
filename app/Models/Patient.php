@@ -29,7 +29,5 @@ class Patient extends Model
         "placeOfBirth",
         "weight",
         "height",
-        "createdAt",
-        "updatedAt",
     ];
 }

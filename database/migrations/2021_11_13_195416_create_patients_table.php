@@ -34,9 +34,7 @@ class CreatePatientsTable extends Migration
             $table->string("placeOfBirth");
             $table->float("weight");
             $table->float("height");
-            $table->timestamp("createdAt");
-            $table->timestamp("updatedAt");
-            $table->timestamps('');
+            $table->timestamps();
         });
     }
 

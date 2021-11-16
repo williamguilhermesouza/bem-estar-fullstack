@@ -22,9 +22,10 @@ Route::prefix('/admin')->group(function() {
     Route::get('/', HomeController::class)->name('admin.home');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('admin.agenda');
     Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('admin.attendance');
-    Route::get('/movimentacao', [MovementController::class, 'index'])->name('admin.movement');
+    Route::get('/movimentacoes', [MovementController::class, 'index'])->name('admin.movement');
     Route::get('/pacientes', [PatientController::class, 'index'])->name('admin.patient');
     Route::get('/pacientes/novo', [PatientController::class, 'create'])->name('admin.patient.new');
+    Route::post('/pacientes/salvar', [PatientController::class, 'store'])->name('admin.patient.save');
     Route::get('/usuarios', [UserController::class, 'index'])->name('admin.user');
 });
 

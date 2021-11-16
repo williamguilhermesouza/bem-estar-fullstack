@@ -35,7 +35,7 @@
 
     $data = [];
     foreach ($patients as $patient) {
-        array_push($data, [$patient->id, $patient->name, $patient->email, '<nobr>' . $btnEdit . '<nobr>' . $btnDelete . '<nobr>' . $btnDetails ]);
+        array_push($data, [$patient->id, $patient->name, $patient->email, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);
     }
     @endphp
 

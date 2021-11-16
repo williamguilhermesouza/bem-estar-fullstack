@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container fluid">
-    <form method="POST" action="#">
+    <form method="POST" action={{route('admin.patient.save')}}>
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
