@@ -17,14 +17,8 @@
         ['label' => 'Ações', 'no-export' => true, 'width' => 5],
     ];
 
-    $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Editar">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </button>';
     $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
                     <i class="fa fa-lg fa-fw fa-trash"></i>
-                </button>';
-    $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Detalhes">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
                 </button>';
 
     $config = [
@@ -34,7 +28,7 @@
 
     $data = [];
     foreach ($users as $user) {
-        array_push($data, [$user->id, $user->name, $user->email, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);
+        array_push($data, [$user->id, $user->name, $user->email, '<nobr>' . $btnDelete ]);
     }
     @endphp
 
