@@ -7,6 +7,17 @@
 @stop
 
 @section('content')
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container fluid">
     <form method="POST" action={{route('admin.patient.save')}}>
         @csrf
@@ -143,14 +154,14 @@
             </div>
             <div class="col-md-2">
                 <label for="weight">Peso</label>
-                <input name="weight" type="number" id="weight" class="form-control"/>
+                <input name="weight" id="weight" class="form-control"/>
 
             </div>
         </div>
         <div class="form-row mb-4">
             <div class="col-md-2">
                 <label for="height">Altura</label>
-                <input name="height" type="number" id="height" class="form-control"/>
+                <input name="height" id="height" class="form-control"/>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>

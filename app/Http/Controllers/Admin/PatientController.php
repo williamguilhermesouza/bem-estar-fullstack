@@ -42,7 +42,29 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required'],
+            'sex' => ['required'],
+            "phoneNumber" => ['required'],
+            "streetName" => ['required'],
+            "streetNumber" => ['required'],
+            "streetDistrict" => ['required'],
+            "city" => ['required'],
+            "state" => ['required'],
+            "birthDate" => ['required'],
+            "cpf" => ['required', 'unique:patients'],
+            "email" => ['required', 'email', 'unique:patients'],
+            "color" => ['required'],
+            "civilState" => ['required'],
+            "religion" => ['required'],
+            "scholarship" => ['required'],
+            "profession" => ['required'],
+            "placeOfBirth" => ['required'],
+            "weight" => ['required','digits_between:1,3'],
+            "height" => ['required','digits_between:1,3'],
+        ]);
         Patient::create($request->all());
+        return redirect()->route('admin.patient');
 
     }
 
@@ -54,7 +76,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.patient.show', ['id' => $id]);
     }
 
     /**
@@ -77,7 +99,8 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('admin.patient');
+
     }
 
     /**
@@ -88,6 +111,6 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect()->route('admin.patient');
     }
 }

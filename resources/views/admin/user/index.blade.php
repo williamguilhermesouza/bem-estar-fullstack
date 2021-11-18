@@ -17,9 +17,7 @@
         ['label' => 'Ações', 'no-export' => true, 'width' => 5],
     ];
 
-    $btnDelete = '<a href={{route("admin.user.destroy")}}><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
-                    <i class="fa fa-lg fa-fw fa-trash"></i>
-                </button></a>';
+
 
     $config = [
         'order' => [[1, 'asc']],
@@ -28,6 +26,10 @@
 
     $data = [];
     foreach ($users as $user) {
+        $btnDelete = '<a href="/admin/usuarios/deletar/' . $user->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
+                    <i class="fa fa-lg fa-fw fa-trash"></i>
+                </button></a>';
+
         array_push($data, [$user->id, $user->name, $user->email, '<nobr>' . $btnDelete ]);
     }
     @endphp

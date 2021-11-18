@@ -18,23 +18,23 @@
         ['label' => 'Ações', 'no-export' => true, 'width' => 5],
     ];
 
-    $btnEdit = '<button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
-                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                </button>';
-    $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
-                    <i class="fa fa-lg fa-fw fa-trash"></i>
-                </button>';
-    $btnDetails = '<button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
-                    <i class="fa fa-lg fa-fw fa-eye"></i>
-                </button>';
 
     $config = [
         'order' => [[1, 'asc']],
         'columns' => [null, null, null, ['orderable' => false]],
-    ];
+        ];
 
     $data = [];
     foreach ($patients as $patient) {
+        $btnEdit = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+                        <i class="fa fa-lg fa-fw fa-pen"></i>
+                    </button></a>';
+        $btnDelete = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
+                        <i class="fa fa-lg fa-fw fa-trash"></i>
+                    </button></a>';
+        $btnDetails = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
+                        <i class="fa fa-lg fa-fw fa-eye"></i>
+                    </button></a>';
         array_push($data, [$patient->id, $patient->name, $patient->email, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);
     }
     @endphp
