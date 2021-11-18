@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -30,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.new');
     }
 
     /**
@@ -41,7 +42,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required','unique:users', 'email'],
+            'password' => ['required', 'confirmed'],
+        ]);
+        User::create($request->all());
+        return redirect()->route('admin.user');
     }
 
     /**
@@ -86,6 +93,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::delete('DELETE FROM users WHERE id = ?', $id);
+        return redirect()->route('admin.user');
     }
 }

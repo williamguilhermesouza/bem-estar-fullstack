@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <a href={{route('register')}}><button class="btn btn-success mb-4" >Novo Usuário</button></a>
+    <a href={{route('admin.user.new')}}><button class="btn btn-success mb-4" >Novo Usuário</button></a>
     {{-- Setup data for datatables --}}
     @php
     $heads = [
@@ -17,9 +17,9 @@
         ['label' => 'Ações', 'no-export' => true, 'width' => 5],
     ];
 
-    $btnDelete = '<button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
+    $btnDelete = '<a href={{route("admin.user.destroy")}}><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Deletar">
                     <i class="fa fa-lg fa-fw fa-trash"></i>
-                </button>';
+                </button></a>';
 
     $config = [
         'order' => [[1, 'asc']],

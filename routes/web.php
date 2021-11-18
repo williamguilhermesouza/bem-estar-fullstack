@@ -27,6 +27,10 @@ Route::prefix('/admin')->group(function() {
     Route::get('/pacientes/novo', [PatientController::class, 'create'])->name('admin.patient.new');
     Route::post('/pacientes/salvar', [PatientController::class, 'store'])->name('admin.patient.save');
     Route::get('/usuarios', [UserController::class, 'index'])->name('admin.user');
+    Route::get('/usuarios/novo', [UserController::class, 'create'])->name('admin.user.new');
+    Route::post('/usuarios/salvar', [UserController::class, 'store'])->name('admin.user.save');
+    Route::get('/usuarios/deletar', [UserController::class, 'destroy'])->name('admin.user.destroy');
+
 });
 
 Route::redirect( '/', '/login' );
