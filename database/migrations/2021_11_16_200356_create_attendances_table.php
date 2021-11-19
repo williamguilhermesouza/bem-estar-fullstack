@@ -15,11 +15,13 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreign('patientId')->references('id')->on('patients');
+            $table->unsignedBigInteger('patientId');
             $table->timestamp('attendanceDate');
             $table->string('doneProcedures');
             $table->timestamps();
+            $table->foreign('patientId')->references('id')->on('patients');
         });
+
     }
 
     /**

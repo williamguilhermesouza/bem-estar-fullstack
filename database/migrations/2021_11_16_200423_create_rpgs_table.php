@@ -15,6 +15,7 @@ class CreateRpgsTable extends Migration
     {
         Schema::create('rpgs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patientId');
             $table->foreign('patientId')->references('id')->on('patients');
             $table->string("rightFeet");
             $table->string("leftFeet");

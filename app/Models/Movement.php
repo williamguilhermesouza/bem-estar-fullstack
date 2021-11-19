@@ -10,6 +10,7 @@ class Movement extends Model
     use HasFactory;
 
     protected $fillable = [
+        'patientId',
         'description',
         'value',
     ];

@@ -22,8 +22,16 @@ Route::prefix('/admin')->name('admin.')->group(function() {
 
     Route::get('/', HomeController::class)->name('home');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
-    Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('attendance');
-    Route::get('/movimentacoes', [MovementController::class, 'index'])->name('movement');
+
+    Route::prefix('/atendimentos')->name('attendance.')->group(function() {
+        Route::get('', [AttendanceController::class, 'index'])->name('');
+        Route::get('/listar/{id}', [AttendanceController::class, 'list'])->name('list');
+    });
+
+    Route::prefix('/movimentacoes')->name('movement.')->group(function() {
+        Route::get('', [MovementController::class, 'index'])->name('');
+        Route::get('/novo', [MovementController::class, 'create'])->name('new');
+    });
 
     Route::prefix('/pacientes')->name('patient.')->group(function() {
         Route::get('', [PatientController::class, 'index'])->name('patient');

@@ -15,6 +15,7 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patientId');
             $table->foreign('patientId')->references('id')->on('patients');
             $table->string("currentDiseaseHistoric");
             $table->string("associateDiseases");

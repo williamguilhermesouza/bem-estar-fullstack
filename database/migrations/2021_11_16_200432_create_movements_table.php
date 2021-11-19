@@ -15,6 +15,8 @@ class CreateMovementsTable extends Migration
     {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patientId');
+            $table->foreign('patientId')->references('id')->on('patients');
             $table->string('description');
             $table->float('value');
             $table->timestamps();

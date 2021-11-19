@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class AttendanceController extends Controller
 {
@@ -18,7 +20,13 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        return view('admin.attendance.index');
+        $patients = DB::select('select * from patients');
+        return view('admin.attendance.index', ['patients' => $patients]);
+    }
+
+    public function list()
+    {
+        return view('admin.attendance.list');
     }
 
     /**

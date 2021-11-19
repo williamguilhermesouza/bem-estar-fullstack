@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class MovementController extends Controller
 {
@@ -18,8 +20,11 @@ class MovementController extends Controller
      */
     public function index()
     {
-        return view('admin.movement.index');
+        $movements = DB::select('select * from movements');
+        return view('admin.movement.index', ['movements' => $movements]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
