@@ -23,9 +23,10 @@ Route::prefix('/admin')->name('admin.')->group(function() {
     Route::get('/', HomeController::class)->name('home');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
 
+    Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('attendance');
     Route::prefix('/atendimentos')->name('attendance.')->group(function() {
-        Route::get('', [AttendanceController::class, 'index'])->name('');
         Route::get('/listar/{id}', [AttendanceController::class, 'list'])->name('list');
+        Route::get('/novo', [AttendanceController::class, 'list'])->name('new');
     });
 
     Route::prefix('/movimentacoes')->name('movement.')->group(function() {
@@ -33,8 +34,8 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::get('/novo', [MovementController::class, 'create'])->name('new');
     });
 
+    Route::get('/pacientes', [PatientController::class, 'index'])->name('patient');
     Route::prefix('/pacientes')->name('patient.')->group(function() {
-        Route::get('', [PatientController::class, 'index'])->name('patient');
         Route::get('/novo', [PatientController::class, 'create'])->name('new');
         Route::post('/salvar', [PatientController::class, 'store'])->name('save');
         Route::get('/mostrar/{id}', [PatientController::class, 'show'])->name('show');
@@ -42,8 +43,8 @@ Route::prefix('/admin')->name('admin.')->group(function() {
         Route::post('/atualizar', [PatientController::class, 'update'])->name('update');
         Route::get('/deletar/{id}', [PatientController::class, 'destroy'])->name('destroy');
     });
+    Route::get('/usuarios', [UserController::class, 'index'])->name('user');
     Route::prefix('/usuarios')->name('user.')->group(function() {
-        Route::get('', [UserController::class, 'index'])->name('');
         Route::get('/novo', [UserController::class, 'create'])->name('new');
         Route::post('/salvar', [UserController::class, 'store'])->name('save');
         Route::get('/deletar/{id}', [UserController::class, 'destroy'])->name('destroy');

@@ -26,7 +26,8 @@ class AttendanceController extends Controller
 
     public function list()
     {
-        return view('admin.attendance.list');
+        $attendances = DB::select('select * from attendances');
+        return view('admin.attendance.list', ['attendances' => $attendances]);
     }
 
     /**

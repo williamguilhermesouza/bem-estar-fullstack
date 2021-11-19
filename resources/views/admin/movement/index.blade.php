@@ -8,7 +8,7 @@
 
 
 @section('content')
-    <a href={{route('admin.movement.new')}}><button class="btn btn-success mb-4" >Novo Movimentação</button></a>
+    <a href={{route('admin.movement.new')}}><button class="btn btn-success mb-4" >Nova Movimentação</button></a>
     {{-- Setup data for datatables --}}
     @php
     $heads = [
