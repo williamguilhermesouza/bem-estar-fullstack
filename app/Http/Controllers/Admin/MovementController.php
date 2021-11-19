@@ -66,7 +66,9 @@ class MovementController extends Controller
      */
     public function show($id)
     {
-        //
+        $patients = DB::select('select * from patients');
+        $movement = DB::table('movements')->find($id);
+        return view('admin.movement.show', ['patients' => $patients, 'movement' => $movement]);
     }
 
     /**
@@ -77,7 +79,9 @@ class MovementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patients = DB::select('select * from patients');
+        $movement = DB::table('movements')->find($id);
+        return view('admin.movement.edit', ['patients' => $patients, 'movement' => $movement]);
     }
 
     /**
@@ -89,7 +93,10 @@ class MovementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $values = $request->all();
+        unset($values['_token']);
+        Movement::where('id', $id)->update($values);
+        return redirect()->route('admin.movement');
     }
 
     /**
@@ -100,6 +107,8 @@ class MovementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movement = Movement::find($id);
+        $movement->delete();
+        return redirect()->route('admin.movement');
     }
 }

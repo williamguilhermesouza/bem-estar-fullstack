@@ -27,13 +27,13 @@
 
     $data = [];
     foreach ($movements as $movement) {
-        $btnEdit = '<a href="/admin/movimentacao/editar/' . $movement->id . '"><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+        $btnEdit = '<a href="/admin/movimentacoes/editar/' . $movement->id . '"><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </button></a>';
-        $btnDelete = '<a href="/admin/movimentacao/deletar/' . $movement->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
+        $btnDelete = '<a href="/admin/movimentacoes/deletar/' . $movement->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
                         <i class="fa fa-lg fa-fw fa-trash"></i>
                     </button></a>';
-        $btnDetails = '<a href="/admin/movimentacao/mostrar/' . $movement->id . '"><button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
+        $btnDetails = '<a href="/admin/movimentacoes/mostrar/' . $movement->id . '"><button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
                         <i class="fa fa-lg fa-fw fa-eye"></i>
                     </button></a>';
         array_push($data, [$movement->id, (isset($patients[$movement->patientId]) ? $patients[$movement->patientId]->name : '' ), $movement->description, $movement->value, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);

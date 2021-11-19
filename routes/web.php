@@ -33,6 +33,10 @@ Route::prefix('/admin')->name('admin.')->group(function() {
     Route::prefix('/movimentacoes')->name('movement.')->group(function() {
         Route::get('/novo', [MovementController::class, 'create'])->name('new');
         Route::post('/salvar', [MovementController::class, 'store'])->name('save');
+        Route::get('/mostrar/{id}', [MovementController::class, 'show'])->name('show');
+        Route::get('/editar/{id}', [MovementController::class, 'edit'])->name('edit');
+        Route::post('/atualizar/{id}', [MovementController::class, 'update'])->name('update');
+        Route::get('/deletar/{id}', [MovementController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('/pacientes', [PatientController::class, 'index'])->name('patient');
