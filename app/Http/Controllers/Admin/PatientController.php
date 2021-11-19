@@ -76,7 +76,8 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        return view('admin.patient.show', ['id' => $id]);
+        $patient = DB::table('patients')->find($id);
+        return view('admin.patient.show', ['patient' => $patient]);
     }
 
     /**
@@ -87,7 +88,8 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = DB::table('patients')->find($id);
+        return view('admin.patient.edit', ['patient' => $patient]);
     }
 
     /**
@@ -97,8 +99,11 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $values = $request->all();
+        unset($values['_token']);
+        Patient::where('id', $request->id)->update($values);
         return redirect()->route('admin.patient');
 
     }
@@ -111,6 +116,8 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
+        $patient = Patient::find($id);
+        $patient->delete();
         return redirect()->route('admin.patient');
     }
 }

@@ -27,6 +27,9 @@ Route::prefix('/admin')->group(function() {
     Route::get('/pacientes/novo', [PatientController::class, 'create'])->name('admin.patient.new');
     Route::post('/pacientes/salvar', [PatientController::class, 'store'])->name('admin.patient.save');
     Route::get('/pacientes/mostrar/{id}', [PatientController::class, 'show'])->name('admin.patient.show');
+    Route::get('/pacientes/editar/{id}', [PatientController::class, 'edit'])->name('admin.patient.edit');
+    Route::post('/pacientes/atualizar', [PatientController::class, 'update'])->name('admin.patient.update');
+    Route::get('/pacientes/deletar/{id}', [PatientController::class, 'destroy'])->name('admin.patient.destroy');
     Route::get('/usuarios', [UserController::class, 'index'])->name('admin.user');
     Route::get('/usuarios/novo', [UserController::class, 'create'])->name('admin.user.new');
     Route::post('/usuarios/salvar', [UserController::class, 'store'])->name('admin.user.save');

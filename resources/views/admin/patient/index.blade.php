@@ -26,10 +26,10 @@
 
     $data = [];
     foreach ($patients as $patient) {
-        $btnEdit = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+        $btnEdit = '<a href="/admin/pacientes/editar/' . $patient->id . '"><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
                         <i class="fa fa-lg fa-fw fa-pen"></i>
                     </button></a>';
-        $btnDelete = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
+        $btnDelete = '<a href="/admin/pacientes/deletar/' . $patient->id . '"><button class="btn btn-xs btn-default text-danger mx-1 shadow" title="Delete">
                         <i class="fa fa-lg fa-fw fa-trash"></i>
                     </button></a>';
         $btnDetails = '<a href="/admin/pacientes/mostrar/' . $patient->id . '"><button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
