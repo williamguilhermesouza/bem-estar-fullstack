@@ -13,8 +13,9 @@
     @php
     $heads = [
         'ID',
-        'Nome',
-        ['label' => 'E-mail', 'width' => 40],
+        'Paciente',
+        ['label' => 'Descrição', 'width' => 40],
+        ['label' => 'Valor', 'no-export' => true, 'width' => 5],
         ['label' => 'Ações', 'no-export' => true, 'width' => 5],
     ];
 
@@ -35,7 +36,7 @@
         $btnDetails = '<a href="/admin/movimentacao/mostrar/' . $movement->id . '"><button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details">
                         <i class="fa fa-lg fa-fw fa-eye"></i>
                     </button></a>';
-        array_push($data, [$movement->id, $movement->name, $movement->email, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);
+        array_push($data, [$movement->id, (isset($patients[$movement->patientId]) ? $patients[$movement->patientId]->name : '' ), $movement->description, $movement->value, '<nobr>' . $btnDetails . '<nobr>' . $btnEdit . '<nobr>' . $btnDelete ]);
     }
     @endphp
 

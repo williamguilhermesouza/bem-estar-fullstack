@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Movement;
 
 
 class MovementController extends Controller
@@ -21,7 +22,8 @@ class MovementController extends Controller
     public function index()
     {
         $movements = DB::select('select * from movements');
-        return view('admin.movement.index', ['movements' => $movements]);
+        $patients = DB::select('select * from patients');
+        return view('admin.movement.index', ['movements' => $movements, 'patients' => $patients]);
     }
 
 
@@ -33,7 +35,8 @@ class MovementController extends Controller
      */
     public function create()
     {
-        //
+        $patients = DB::select('select * from patients');
+        return view('admin.movement.new', ['patients' => $patients]);
     }
 
     /**
@@ -44,7 +47,15 @@ class MovementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'patientId' => [],
+            'description' => ['required'],
+            "value" => ['required'],
+        ]);
+
+        Movement::create($request->all());
+        return redirect()->route('admin.movement');
+
     }
 
     /**

@@ -26,12 +26,13 @@ Route::prefix('/admin')->name('admin.')->group(function() {
     Route::get('/atendimentos', [AttendanceController::class, 'index'])->name('attendance');
     Route::prefix('/atendimentos')->name('attendance.')->group(function() {
         Route::get('/listar/{id}', [AttendanceController::class, 'list'])->name('list');
-        Route::get('/novo', [AttendanceController::class, 'list'])->name('new');
+        Route::get('/novo', [AttendanceController::class, 'create'])->name('new');
     });
 
+    Route::get('/movimentacoes', [MovementController::class, 'index'])->name('movement');
     Route::prefix('/movimentacoes')->name('movement.')->group(function() {
-        Route::get('', [MovementController::class, 'index'])->name('');
         Route::get('/novo', [MovementController::class, 'create'])->name('new');
+        Route::post('/salvar', [MovementController::class, 'store'])->name('save');
     });
 
     Route::get('/pacientes', [PatientController::class, 'index'])->name('patient');
