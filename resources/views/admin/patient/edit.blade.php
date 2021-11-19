@@ -81,7 +81,7 @@
             </div>
             <div class="col">
                 <label for="birthDate">Data de nascimento</label>
-                <input name="birthDate" value="{{$patient->birthDate}}" type="date" id="birthDate" class="form-control" />
+                <input name="birthDate" value="{{substr($patient->birthDate, 0, 10)}}" type="date" id="birthDate" class="form-control" />
             </div>
         </div>
         <div class="form-row">
